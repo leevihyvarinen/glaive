@@ -1,0 +1,85 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 0;
+    @include breakpoint(min-m) {
+        margin-top: 6rem;
+    }
+}
+
+.pagination__items {
+    display: flex;
+    column-gap: 0.25rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include breakpoint(min-l) {
+        column-gap: 0.5rem;
+    }
+}
+
+.pagination__item {
+    margin: 0;
+    padding: 0;
+
+    a {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.15s ease;
+        transition: background-color 0.15s ease;
+        border: 1px solid $gray-25;
+        background-color: $gray-25;
+        padding: 0;
+        width: 100%;
+        min-width: 2rem;
+        max-width: 2rem;
+        height: 100%;
+        min-height: 2rem;
+        max-height: 2rem;
+        color: $gray-75;
+        font-weight: $font-black;
+        line-height: 1.5rem;
+        text-align: center;
+        text-decoration: none;
+
+        &:hover {
+            background-color: $gray-100;
+            color: $white;
+        }
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+
+    &--prev a,
+    &--next a {
+        border-color: $gray-75;
+        background-color: $gray-75;
+        color: $white;
+
+        &:hover {
+            border-color: $gray-100;
+            background-color: $gray-100;
+            color: $white;
+        }
+    }
+
+    &--current a {
+        border-color: $gray-75;
+        background-color: $gray-75;
+        color: $white;
+
+        &:hover {
+            border-color: $gray-100;
+            background-color: $gray-100;
+        }
+    }
+}

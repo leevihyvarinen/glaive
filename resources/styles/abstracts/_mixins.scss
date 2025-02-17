@@ -1,0 +1,320 @@
+@use 'variables' as *;
+
+// Accessibility
+@mixin global-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    content: '';
+}
+
+@mixin screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    word-wrap: normal !important;
+    position: absolute !important;
+    clip-path: inset(50%);
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+// Breakpoints
+@mixin breakpoint($breakpoint) {
+    @if $breakpoint == min-xs {
+        @media (min-width: 512px) {
+            @content;
+        }
+    } @else if $breakpoint == max-xs {
+        @media (max-width: 511px) {
+            @content;
+        }
+    } @else if $breakpoint == min-s {
+        @media (min-width: 768px) {
+            @content;
+        }
+    } @else if $breakpoint == max-s {
+        @media (max-width: 767px) {
+            @content;
+        }
+    } @else if $breakpoint == min-m {
+        @media (min-width: 1024px) {
+            @content;
+        }
+    } @else if $breakpoint == max-m {
+        @media (max-width: 1023px) {
+            @content;
+        }
+    } @else if $breakpoint == min-l {
+        @media (min-width: 1280px) {
+            @content;
+        }
+    } @else if $breakpoint == max-l {
+        @media (max-width: 1279px) {
+            @content;
+        }
+    } @else if $breakpoint == min-xl {
+        @media (min-width: 1440px) {
+            @content;
+        }
+    } @else if $breakpoint == max-xl {
+        @media (max-width: 1439px) {
+            @content;
+        }
+    }
+}
+
+// Buttons
+@mixin btn {
+    transition: all 0.15s ease;
+    font-weight: $font-black;
+    font-size: $font-xxs;
+    line-height: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+@mixin btn-display($btn-display) {
+    @include btn();
+    @if $btn-display == inline {
+        display: inline-block;
+    } @else if $btn-display == inline-flex {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        svg {
+            width: 1rem;
+            height: 1rem;
+        }
+    } @else if $btn-display == block {
+        display: block;
+        width: 100%;
+    }
+}
+
+@mixin btn-color($btn-color) {
+    @if $btn-color == solid-gray {
+        border: 1px solid $gray-75;
+        background-color: $gray-75;
+        color: $white;
+
+        &:hover {
+            border-color: $gray-100;
+            background-color: $gray-100;
+        }
+    } @else if $btn-color == solid-white {
+        border: 1px solid $white;
+        background-color: $white;
+        color: $gray-75;
+
+        &:hover {
+            border-color: $gray-25;
+            background-color: $gray-25;
+        }
+    }
+}
+
+@mixin btn-size($btn-size) {
+    @if $btn-size == s {
+        padding: 0.5rem 1rem;
+    } @else if $btn-size == m {
+        padding: 0.75rem 1.25rem;
+        @include breakpoint(min-s) {
+            padding: 1rem 1.5rem;
+        }
+    } @else if $btn-size == l {
+        padding: 1rem 1.5rem;
+        @include breakpoint(min-s) {
+            padding: 1.5rem 2rem;
+        }
+    }
+}
+
+// Links
+@mixin link {
+    display: inline-block;
+    transition: all 0.15s ease;
+    font-weight: $font-black;
+    text-decoration: none;
+}
+
+@mixin link-gray {
+    color: $gray-75;
+    font-weight: $font-black;
+
+    &:hover {
+        color: $gray-100;
+    }
+}
+
+@mixin link-white {
+    color: $white;
+    @include link;
+
+    &:hover {
+        color: $gray-25;
+    }
+}
+
+@mixin link-underline {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+@mixin link-no-underline {
+    text-decoration: none;
+}
+
+@mixin link-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}
+
+// WYSIWYG Editor
+@mixin wysiwyg-editor {
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    &::after {
+        display: table;
+        clear: both;
+        content: '';
+    }
+
+    p a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    h6 a,
+    li a {
+        transition: all 0.15s ease;
+        color: $red-75;
+        font-weight: $font-normal;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 2px;
+
+        &:hover {
+            text-decoration-thickness: 1px;
+        }
+    }
+
+    p > img {
+        margin: 1.5rem 0;
+        @include breakpoint(min-xs) {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    img {
+        display: block;
+
+        &.alignleft {
+            margin-right: auto;
+            margin-left: auto;
+            @include breakpoint(min-s) {
+                float: left;
+                margin-right: 1.5rem;
+                margin-left: 0;
+            }
+        }
+
+        &.aligncenter {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        &.alignright {
+            margin-right: auto;
+            margin-left: auto;
+            @include breakpoint(min-s) {
+                float: right;
+                margin-right: 0;
+                margin-left: 1.5rem;
+            }
+        }
+    }
+
+    figure {
+        margin: 1.5rem 0;
+        max-width: 100%;
+        @include breakpoint(min-xs) {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        figcaption {
+            margin: -0.25rem 0 0;
+            background-color: $gray-75;
+            padding: 0.75rem;
+            color: $white;
+        }
+    }
+
+    blockquote {
+        position: relative;
+        margin: 1.5rem 0;
+        padding: 4.5rem 0 0;
+        @include breakpoint(min-xs) {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        @include breakpoint(min-m) {
+            padding-top: 0;
+            padding-left: 6rem;
+        }
+
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23666666" width="24" height="24" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>');
+            background-size: cover;
+            width: 3rem;
+            height: 3rem;
+            content: '';
+        }
+
+        p {
+            margin: 1.5rem 0 1rem;
+            color: $gray-50;
+            font-weight: $font-black;
+            font-size: $font-xl;
+            line-height: 1.25;
+            @include breakpoint(min-xs) {
+                margin-top: 2rem;
+            }
+            @include breakpoint(min-l) {
+                font-size: $font-xxl;
+            }
+        }
+    }
+}

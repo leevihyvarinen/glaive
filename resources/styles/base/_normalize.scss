@@ -1,0 +1,145 @@
+// Box sizing
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+// Correct the line height in all browsers.
+html {
+    text-size-adjust: 100%;
+    // line-height: 1.15;
+}
+
+// Remove the margin in all browsers.
+body {
+    margin: 0;
+}
+
+// Correct the font size and margin on `h1` elements within `section` and
+// `article` contexts in Chrome, Firefox, and Safari.
+h1 {
+    margin: 0.67em 0;
+    font-size: 2em;
+}
+
+// 1. Add the correct box sizing in Firefox.
+// 2. Show the overflow in Edge and IE.
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+// 1. Correct the inheritance and scaling of font size in all browsers.
+// 2. Correct the odd `em` font sizing in all browsers.
+pre {
+    font-size: 1em;
+    font-family: monospace, monospace;
+}
+
+// 1. Remove the bottom border in Chrome 57-.
+// 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+}
+
+// 1. Correct the inheritance and scaling of font size in all browsers.
+// 2. Correct the odd `em` font sizing in all browsers.
+code,
+kbd,
+samp {
+    font-size: 1em;
+    font-family: monospace, monospace;
+}
+
+// Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+sub,
+sup {
+    position: relative;
+    vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+// 1. Change the font styles in all browsers.
+// 2. Remove the margin in Firefox and Safari.
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin: 0;
+    // font-size: 100%;
+    // line-height: 1.15;
+    font-family: inherit;
+}
+
+// 1. Remove the inheritance of text transform in Edge, Firefox, and IE.
+// 2. Remove the inheritance of text transform in Firefox.
+button,
+select {
+    text-transform: none;
+}
+
+// Show the cursor in button.
+button {
+    cursor: pointer;
+}
+
+// Correct the inability to style clickable types in iOS and Safari.
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    appearance: button;
+}
+
+// Correct the cursor style of increment and decrement buttons in Chrome.
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+    height: auto;
+}
+
+// Remove the inner padding in Chrome and Safari on macOS.
+::-webkit-search-decoration {
+    appearance: none;
+}
+
+// 1. Correct the odd appearance in Chrome and Safari.
+// 2. Correct the outline style in Safari.
+[type="search"] {
+    appearance: textfield;
+    outline-offset: -2px;
+}
+
+// 1. Correct the inability to style clickable types in iOS and Safari.
+// 2. Change font properties to `inherit` in Safari.
+::-webkit-file-upload-button {
+    appearance: button;
+    font: inherit;
+}
+
+// Add the correct display in Edge, IE 10+, and Firefox.
+details {
+    display: block;
+}
+
+// Add the correct display in all browsers.
+summary {
+    display: list-item;
+}

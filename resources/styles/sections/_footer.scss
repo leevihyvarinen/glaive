@@ -1,0 +1,16 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.site-footer {
+    position: relative;
+    padding: 1.5rem 0 3rem;
+    @include breakpoint(min-s) {
+        padding-bottom: 6rem;
+    }
+
+    &__container {
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        max-width: $width-xl;
+    }
+}

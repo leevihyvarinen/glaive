@@ -1,0 +1,26 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.x-button {
+    @include btn-display(inline);
+
+    &--gray {
+        @include btn-color(solid-gray);
+    }
+
+    &--white {
+        @include btn-color(solid-white);
+    }
+
+    &--small {
+        @include btn-size(m);
+    }
+
+    &--medium {
+        @include btn-size(m);
+    }
+
+    &--large {
+        @include btn-size(l);
+    }
+}

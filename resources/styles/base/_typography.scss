@@ -1,0 +1,128 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+p {
+    margin: 0 0 1.5rem;
+    font-weight: $font-normal;
+    font-size: $font-xxs;
+    line-height: 1.5;
+}
+
+h1 {
+    margin: 1.5rem 0;
+    font-weight: $font-black;
+    font-size: $font-xl;
+    line-height: 1.25;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    @include breakpoint(min-s) {
+        font-size: $font-xxl;
+    }
+    @include breakpoint(min-l) {
+        font-size: $font-xxxl;
+    }
+}
+
+h2 {
+    margin: 1.5rem 0;
+    font-weight: $font-black;
+    font-size: $font-m;
+    line-height: 1.25;
+    @include breakpoint(min-s) {
+        font-size: $font-l;
+    }
+    @include breakpoint(min-l) {
+        font-size: $font-xl;
+    }
+}
+
+h3 {
+    margin: 1.5rem 0 1rem;
+    font-weight: $font-black;
+    font-size: $font-s;
+    line-height: 1.25;
+    @include breakpoint(min-s) {
+        margin-bottom: 1rem;
+        font-size: $font-m;
+    }
+}
+
+h4 {
+    margin: 1.5rem 0 0.75rem;
+    font-weight: $font-black;
+    font-size: $font-xxs;
+    @include breakpoint(min-s) {
+        margin-bottom: 1rem;
+        font-size: $font-xs;
+    }
+}
+
+h5 {
+    margin: 1.5rem 0 0.75rem;
+    font-weight: $font-black;
+    font-size: $font-xxs;
+    @include breakpoint(min-s) {
+        margin-bottom: 1rem;
+        font-size: $font-xs;
+    }
+}
+
+h6 {
+    margin: 1.5rem 0 0.75rem;
+    font-weight: $font-black;
+    font-size: $font-xxs;
+    @include breakpoint(min-s) {
+        margin-bottom: 1rem;
+        font-size: $font-xs;
+    }
+}
+
+dfn,
+cite,
+em,
+i {
+    font-style: italic;
+}
+
+blockquote {
+    margin: 0 1.5em;
+}
+
+address {
+    margin: 0 0 1.5em;
+}
+
+pre {
+    margin-bottom: 1.6em;
+    background: $gray-25;
+    padding: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    line-height: 1.5;
+    font-family: 'Courier 10 Pitch', courier, monospace;
+}
+
+code,
+kbd,
+tt,
+var {
+    font-family: monaco, consolas, 'Andale Mono', 'DejaVu Sans Mono', monospace;
+}
+
+abbr,
+acronym {
+    cursor: help;
+    border-bottom: 1px dotted $gray-50;
+}
+
+mark,
+ins {
+    background: $gray-25;
+    text-decoration: none;
+}
+
+b,
+bold,
+strong {
+    font-weight: $font-black;
+}

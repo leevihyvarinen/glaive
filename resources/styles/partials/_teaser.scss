@@ -1,0 +1,86 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.teaser {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    transition: all 0.15s ease;
+
+    &:hover {
+        .teaser__content h3 a {
+            color: $gray-100;
+        }
+
+        .teaser__content p {
+            color: $gray-100;
+        }
+    }
+
+    img {
+        display: block;
+        margin: 0;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+    &__placeholder {
+        position: relative;
+        margin: 0;
+        background-color: $gray-75;
+        aspect-ratio: 16 / 9;
+
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 3rem;
+            min-width: 3rem;
+            max-width: 3rem;
+            height: 3rem;
+            min-height: 3rem;
+            max-height: 3rem;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        background-color: $gray-25;
+        padding: 1.5rem;
+
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+
+        h3 {
+            flex-grow: 1;
+            transition: all 0.15s ease;
+            margin: 0 0 1.5rem;
+
+            a {
+                color: $gray-75;
+                hyphens: auto;
+
+                &::after {
+                    @include global-link;
+                }
+            }
+        }
+
+        p {
+            display: flex;
+            align-items: flex-end;
+            transition: all 0.15s ease;
+            margin: 0;
+            color: $gray-75;
+            font-weight: $font-black;
+        }
+    }
+}

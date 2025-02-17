@@ -1,0 +1,49 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+a:focus,
+input:focus,
+button:focus,
+select:focus,
+textarea:focus,
+div[tabindex]:focus {
+    opacity: 1;
+    outline-offset: 0.5rem;
+}
+
+.global-link {
+    @include global-link;
+}
+
+.screen-reader-text {
+    @include screen-reader-text;
+}
+
+.skip-to-content {
+    display: inline-block;
+    position: absolute;
+    top: -9999rem;
+    left: -9999rem;
+    outline: none;
+    background: $black;
+    padding: 0.875rem 1.25rem;
+    color: $white;
+    font-weight: $font-black;
+    font-size: $font-xxs;
+    line-height: 1.5rem;
+    text-decoration: none;
+    text-transform: none;
+
+    &:focus {
+        clip: auto;
+        top: 0.5rem;
+        left: 0.5rem;
+        z-index: 100000;
+        width: auto;
+        height: auto;
+    }
+
+    &:visited {
+        color: $white;
+    }
+}

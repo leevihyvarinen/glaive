@@ -1,0 +1,26 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.x-arrow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.15s ease;
+    color: $gray-75;
+    font-weight: $font-black;
+    font-size: $font-xxs;
+    line-height: 1.5rem;
+
+    &:hover {
+        color: $gray-100;
+    }
+
+    svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        @include breakpoint(min-m) {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+}

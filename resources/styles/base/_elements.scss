@@ -1,0 +1,107 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    color: $black;
+    font-weight: $font-medium;
+    font-size: $font-xxs;
+    line-height: 1.5;
+    font-family: $font-sans;
+}
+
+body {
+    background-color: $body-background-color;
+}
+
+hr {
+    margin: 0 0 1.5rem;
+    border: 0;
+    background: $gray-25;
+    height: 1px;
+}
+
+ul,
+ol {
+    margin: 0 0 1.5rem;
+    padding: 0;
+}
+
+ul {
+    list-style: disc;
+    list-style-position: inside;
+}
+
+ol {
+    list-style: decimal;
+}
+
+li {
+    margin: 0.25rem 0;
+    font-weight: $font-normal;
+    font-size: $font-xxs;
+    line-height: 1.5;
+
+    &::marker {
+        font-weight: $font-black;
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+li > ul,
+li > ol {
+    margin: 0 0 0 1.5rem;
+}
+
+dt {
+    font-weight: $font-black;
+}
+
+dd {
+    margin: 0 1.5rem 1.5rem;
+}
+
+embed,
+iframe,
+object {
+    max-width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    margin: 1.5rem 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+th {
+    font-weight: $font-black;
+}
+
+strong {
+    font-weight: $font-black;
+}
+
+small {
+    font-size: $font-xxs;
+}

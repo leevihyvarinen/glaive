@@ -1,0 +1,39 @@
+{
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "printWidth": 80,
+    "plugins": [
+        "prettier-plugin-blade",
+        "prettier-plugin-css-order",
+        "prettier-plugin-organize-attributes"
+    ],
+    "overrides": [
+        {
+            "files": "*.blade.php",
+            "options": {
+                "singleAttributePerLine": true
+            }
+        }
+    ],
+    "organizeAttributes": {
+        "order": [
+            "class",
+            "id",
+            "name",
+            "data-*",
+            "src",
+            "for",
+            "type",
+            "href",
+            "value",
+            "title",
+            "alt",
+            "role",
+            "aria-*",
+            "tabindex",
+            "style"
+        ],
+        "booleanLast": true
+    }
+}

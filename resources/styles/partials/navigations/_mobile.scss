@@ -1,0 +1,240 @@
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/variables' as *;
+
+body.js-nav-mobile-is-active {
+    position: fixed;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.nav-wrapper-mobile {
+    @include breakpoint(min-l) {
+        display: none;
+    }
+}
+
+.nav-toggle-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.15s ease;
+    margin: 0;
+    border: 0;
+    background: 0;
+    padding: 0;
+    width: 100%;
+    min-width: 2rem;
+    max-width: 2rem;
+    height: 100%;
+    min-height: 2rem;
+    max-height: 2rem;
+    color: $gray-75;
+    @include breakpoint(min-l) {
+        display: none;
+    }
+
+    &:hover {
+        color: $gray-100;
+    }
+
+    .icon {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    // &.js-nav-toggle-mobile {&--active {}}
+}
+
+.nav-overlay-mobile {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    &.js-nav-overlay-mobile {
+        visibility: hidden;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 0.15s ease;
+        background: $gray-75;
+
+        &--active {
+            visibility: visible;
+            opacity: 0.75;
+            z-index: 1;
+        }
+    }
+}
+
+.nav.nav--mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    z-index: 100;
+    transition: transform 0.25s ease;
+    margin: 0;
+    background-color: $white;
+    padding: 2.5rem 1.5rem 3rem;
+    width: calc(100vw - 1.5rem);
+    max-width: $width-s;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    @include breakpoint(min-s) {
+        padding-bottom: 6rem;
+    }
+
+    .nav__close {
+        display: flex;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        justify-content: center;
+        align-items: center;
+        transition: color 0.15s ease;
+        margin: 0;
+        border: 0;
+        background: 0;
+        padding: 0;
+        width: 100%;
+        min-width: 2rem;
+        max-width: 2rem;
+        height: 100%;
+        min-height: 2rem;
+        max-height: 2rem;
+        color: $gray-75;
+
+        &:hover {
+            color: $gray-100;
+        }
+
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+
+    .nav__menu {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .nav__item {
+        position: relative;
+        margin: 0;
+        line-height: 1.5rem;
+
+        &--lvl-1 {
+            > a {
+                display: block;
+                transition: color 0.15s ease;
+                padding: 0.25rem 0;
+                color: $gray-75;
+                font-weight: $font-black;
+                font-size: $font-xxs;
+                @include breakpoint(min-s) {
+                    font-size: $font-xs;
+                }
+                @include breakpoint(min-l) {
+                    display: inline-block;
+                    padding: 0;
+                }
+
+                &:hover {
+                    color: $gray-100;
+                }
+            }
+        }
+
+        &--lvl-1.nav__item--children.nav__item--no-link > span {
+            @include screen-reader-text;
+        }
+
+        // &--lvl-1.nav__item--current > a {}
+
+        &--lvl-2 > a {
+            display: block;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0;
+            color: $gray-75;
+            font-weight: $font-black;
+            font-size: $font-s;
+            @include breakpoint(min-s) {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+                font-size: $font-m;
+            }
+
+            &:hover {
+                color: $gray-100;
+            }
+        }
+    }
+
+    .nav__submenu-toggle {
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        justify-content: center;
+        align-items: center;
+        transition: color 0.15s ease;
+        border: 0;
+        background: 0;
+        padding: 0;
+        width: 100%;
+        min-width: 2rem;
+        max-width: 2rem;
+        height: 100%;
+        min-height: 2rem;
+        max-height: 2rem;
+        color: $gray-75;
+        line-height: 1.25rem;
+
+        &:hover {
+            color: $gray-100;
+        }
+
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        &.js-submenu-toggle .icon {
+            &--chevron-down {
+                display: block;
+            }
+
+            &--chevron-up {
+                display: none;
+            }
+        }
+
+        &.js-submenu-toggle--active .icon {
+            &--chevron-down {
+                display: none;
+            }
+
+            &--chevron-up {
+                display: block;
+            }
+        }
+    }
+
+    .nav__submenu-collapse {
+        transition: height 0.25s ease;
+        overflow: hidden;
+    }
+
+    .nav__submenu {
+        margin: 0;
+        padding: 1.25rem 0 1rem;
+        list-style: none;
+        @include breakpoint(min-s) {
+            padding-top: 1rem;
+            padding-bottom: 0.75rem;
+        }
+    }
+}

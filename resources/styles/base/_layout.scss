@@ -1,0 +1,240 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.page-404 {
+    padding: 3rem 0;
+    @include breakpoint(min-l) {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+
+    &__container {
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        max-width: $width-xl;
+        @include breakpoint(min-m) {
+            padding-right: 3rem;
+            padding-left: 3rem;
+        }
+    }
+
+    &__content {
+        margin: 0 auto;
+        max-width: $width-m;
+        text-align: center;
+
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.page-archive,
+.page-index {
+    &__hero {
+        background-color: $gray-25;
+        padding: 3rem 0 6rem;
+        @include breakpoint(min-m) {
+            padding-top: 6rem;
+            padding-bottom: 12rem;
+        }
+    }
+
+    &__container {
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        max-width: $width-xl;
+        @include breakpoint(min-m) {
+            padding-right: 3rem;
+            padding-left: 3rem;
+        }
+    }
+
+    &__content {
+        margin: 0 auto;
+        max-width: $width-m;
+        text-align: center;
+
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__posts {
+        margin: -3rem 0 0;
+        padding: 0 0 3rem;
+        @include breakpoint(min-m) {
+            margin-top: -6rem;
+            padding-bottom: 6rem;
+        }
+    }
+
+    &__post-loop {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 1.5rem;
+        @include breakpoint(min-s) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        @include breakpoint(min-m) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    &__posts-not-found {
+        margin: -3rem 0 0;
+        padding: 0 0 3rem;
+        @include breakpoint(min-m) {
+            margin-top: -6rem;
+            padding-bottom: 6rem;
+        }
+
+        .page-index__container > p {
+            margin: 0;
+            border: 1px solid $gray-75;
+            background-color: $gray-25;
+            padding: 3rem;
+            font-weight: $font-black;
+            @include breakpoint(min-m) {
+                padding: 6rem;
+            }
+        }
+    }
+}
+
+// .page-blocks {}
+// .page-search {}
+
+.page-single {
+    &__post {
+        padding: 0 0 3rem;
+        @include breakpoint(min-l) {
+            padding-bottom: 6rem;
+        }
+    }
+
+    &__latest-posts {
+        background-color: $gray-25;
+        padding: 3rem 0;
+        @include breakpoint(min-l) {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+
+        .page-single__container > h2 {
+            margin: 0 0 3rem;
+        }
+
+        .teaser .teaser__content {
+            background-color: $white;
+        }
+    }
+
+    &__container {
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        max-width: $width-xl;
+        @include breakpoint(min-m) {
+            padding-right: 3rem;
+            padding-left: 3rem;
+        }
+    }
+
+    &__article {
+        > img {
+            display: block;
+            margin: 0 0 3rem;
+            aspect-ratio: 21 / 9;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            @include breakpoint(max-l) {
+                margin-right: -3rem;
+                margin-left: -3rem;
+                width: 100vw;
+                max-width: none;
+            }
+            @include breakpoint(max-m) {
+                margin-right: -1.5rem;
+                margin-left: -1.5rem;
+                aspect-ratio: 16 / 9;
+            }
+        }
+
+        &__placeholder {
+            position: relative;
+            margin: 0 0 3rem;
+            background-color: $gray-75;
+            aspect-ratio: 21 / 9;
+            @include breakpoint(max-l) {
+                margin-right: -3rem;
+                margin-left: -3rem;
+                width: 100vw;
+                max-width: none;
+            }
+            @include breakpoint(max-m) {
+                margin-right: -1.5rem;
+                margin-left: -1.5rem;
+                aspect-ratio: 16 / 9;
+            }
+
+            svg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 3rem;
+                min-width: 3rem;
+                max-width: 3rem;
+                height: 3rem;
+                min-height: 3rem;
+                max-height: 3rem;
+                @include breakpoint(min-m) {
+                    width: 6rem;
+                    min-width: 6rem;
+                    max-width: 6rem;
+                    height: 6rem;
+                    min-height: 6rem;
+                    max-height: 6rem;
+                }
+            }
+        }
+
+        &__content {
+            margin: 0 auto;
+            max-width: $width-m;
+            @include wysiwyg-editor;
+
+            > h1 {
+                @include breakpoint(min-s) {
+                    margin-bottom: 3rem;
+                }
+            }
+
+            p[datetime] {
+                margin: 0 0 1rem;
+                font-weight: $font-black;
+            }
+        }
+    }
+
+    &__post-loop {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 1.5rem;
+        @include breakpoint(min-s) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        @include breakpoint(min-m) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+}

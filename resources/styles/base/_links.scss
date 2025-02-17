@@ -1,0 +1,25 @@
+@use '../abstracts/mixins' as *;
+
+a {
+    text-decoration: none;
+}
+
+.link {
+    &-underline {
+        @include link;
+        @include link-underline;
+    }
+
+    &-no-underline {
+        @include link;
+        @include link-no-underline;
+    }
+
+    &-gray {
+        @include link-gray;
+    }
+
+    &-white {
+        @include link-white;
+    }
+}

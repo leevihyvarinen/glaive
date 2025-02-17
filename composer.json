@@ -1,0 +1,44 @@
+{
+    "name": "leevihyvarinen/glaive",
+    "type": "wordpress-theme",
+    "version": "1.0.0",
+    "license": "MIT",
+    "description": "Glaive is a modified version of the Sage WordPress starter theme (version 10).",
+    "homepage": "https://leevihyvarinen.fi/",
+    "authors": [
+        {
+            "name": "Leevi Hyvarinen",
+            "email": "leevi@leevihyvarinen.fi",
+            "homepage": "https://leevihyvarinen.fi/"
+        }
+    ],
+    "keywords": [
+        "wordpress"
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require": {
+        "php": ">=8.1",
+        "roots/acorn": "^4.3"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.13"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "acorn": {
+            "providers": [
+                "App\\Providers\\ThemeServiceProvider"
+            ]
+        }
+    }
+}

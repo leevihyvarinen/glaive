@@ -1,0 +1,15 @@
+@use '../abstracts/mixins' as *;
+
+.site-branding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    svg {
+        width: auto;
+        height: 6rem;
+        @include breakpoint(min-s) {
+            height: 9rem;
+        }
+    }
+}

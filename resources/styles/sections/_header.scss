@@ -1,0 +1,20 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.site-header {
+    position: relative;
+    padding: 3rem 0 1.5rem;
+    @include breakpoint(min-s) {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        max-width: $width-s;
+    }
+}

@@ -1,0 +1,137 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+label {
+    color: $gray-75;
+    font-weight: $font-black;
+    font-size: $font-xxs;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='url'],
+input[type='password'],
+input[type='search'],
+input[type='number'],
+input[type='tel'],
+input[type='range'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='color'],
+textarea {
+    -webkit-appearance: none;
+    transition: all 0.15s ease;
+    border: 1px solid $gray-50;
+    padding: 0.5rem 0.75rem;
+    color: $gray-75;
+    font-weight: $font-normal;
+    font-size: $font-xs;
+    line-height: 1.5rem;
+
+    &:focus {
+        outline: none;
+        border-color: $gray-75;
+    }
+}
+
+input[type='radio'] {
+    display: grid;
+    place-content: center;
+    appearance: none;
+    margin: 0;
+    border: 1px solid $gray-50;
+    border-radius: $border-radius-full;
+    background-color: transparent;
+    width: 1rem;
+    height: 1rem;
+    color: $gray-75;
+
+    &::before {
+        transform: scale(0);
+        transition: all 0.15s ease;
+        border-radius: $border-radius-full;
+        background-color: $gray-75;
+        width: 0.5rem;
+        height: 0.5rem;
+        content: '';
+    }
+
+    &:checked::before {
+        transform: scale(1);
+    }
+}
+
+input[type='checkbox'] {
+    display: grid;
+    place-content: center;
+    appearance: none;
+    margin: 0;
+    border: 1px solid $gray-50;
+    background-color: transparent;
+    width: 1rem;
+    height: 1rem;
+    color: $gray-75;
+
+    &::before {
+        transform: scale(0);
+        transition: all 0.15s ease;
+        background-color: $gray-75;
+        width: 0.5rem;
+        height: 0.5rem;
+        content: '';
+    }
+
+    &:checked::before {
+        transform: scale(1);
+    }
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: all 0.15s ease;
+    border: 1px solid $gray-50;
+    background: $white;
+    background-image: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' width='24' height='24' viewBox='-2 -2 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M19.375 6.0925 10.441666666666666 15.025000000000002c-0.057999999999999996 0.058083333333333334 -0.12683333333333335 0.10408333333333333 -0.20258333333333334 0.1355 -0.07583333333333334 0.0315 -0.15708333333333335 0.04766666666666667 -0.23908333333333334 0.04766666666666667 -0.082 0 -0.16325 -0.01616666666666667 -0.23908333333333334 -0.04766666666666667 -0.07575 -0.03141666666666667 -0.14458333333333334 -0.07741666666666666 -0.20258333333333334 -0.1355L0.625 6.0925' fill='none' stroke='currentcolor' stroke-linecap='round' stroke-linejoin='round' stroke-width='4'></path></svg>");
+    background-size: 0.625rem;
+    background-repeat: repeat;
+    background-repeat: no-repeat;
+    background-position-x: 0%;
+    background-position-x: calc(100% - 0.75rem);
+    background-position-y: 0%;
+    background-position-y: 50%;
+    padding: 0.5rem 2.125rem 0.5rem 0.75rem;
+    color: $gray-75;
+    font-size: $font-xxs;
+    line-height: 1.5rem;
+
+    &:focus {
+        outline: none;
+        border-color: $gray-75;
+    }
+}
+
+textarea {
+    padding: 0.75rem;
+    width: 100%;
+    font-size: $font-xxs;
+}
+
+::placeholder {
+    opacity: 1;
+    color: $gray-50;
+    font-weight: $font-black;
+    font-size: $font-xxs;
+}
+
+input[type='submit'] {
+    @include btn-display(inline);
+    @include btn-color(solid-orange);
+    @include btn-size(m);
+}
